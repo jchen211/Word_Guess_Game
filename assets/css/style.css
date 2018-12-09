@@ -27,7 +27,7 @@ h2 {
 
 .wordGuess,
 .scoreBoard,
-.subRow {
+.subCol {
     border: solid #323232 1px;
 }
 
