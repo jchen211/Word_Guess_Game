@@ -15,7 +15,7 @@ var wrongGuess = [];
 var chosenWord = [];
 
 /* array of words */
-var words = ['big bang', 'beast', 'blackpink'];
+var words = ['bigbang', 'beast', 'blackpink'];
 
 
 /* define random word selection and generate underscore for chosen word*/
@@ -32,10 +32,9 @@ var letters = [];
   if (word[j] !== " "){
     letters.push('_ ');
   } else {
-    letters.push('  ');
+    letters.push(' ');
       }
     }
-    var remainLetters = chosenWord.length;
 
     randomWordText.textContent = letters.join(' ');
   }
@@ -51,26 +50,21 @@ var letters = [];
         lettersGuessedText.textContent = "Guessed Letters: " + wrongGuess;
         guessesLeftText.textContent = guessLeft;
 
+    } if (guessLeft === 0) {
+          losses++;
+          guessLeft = 10;
+          wrongGuess.length = 0;
 
     } else {
+
       for (var g = 0; g < chosenWord.length; g++) {
         if (chosenWord[g] === userInput) {
           letters[g] = userInput;
-          remainLetters--;
+        } 
+      }  
+        
         }
-
-        if (remainLetters === 0) {
-          alert ("You Got It!");
-          wins++;
-          guessLeft = 10;
-          wrongGuess = [];
-
-        } if (guessLeft === 0) {
-            losses--;
-            guessLeft = 10;
-          }
-        }
-      }
+    
     randomWordText.textContent = letters.join(' ');
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
