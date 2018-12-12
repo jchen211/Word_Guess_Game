@@ -35,7 +35,7 @@ var letters = [];
     letters.push('  ');
       }
     }
-  var remainLetters = chosenWord.length;
+    var remainLetters = chosenWord.length;
 
     randomWordText.textContent = letters.join(' ');
   }
@@ -51,18 +51,21 @@ var letters = [];
         lettersGuessedText.textContent = "Guessed Letters: " + wrongGuess;
 
     } else {
-        if (chosenWord.indexOf(userInput) === word[j]) {
-    // need to get blanks to be replaced by letter.        
-      letters.push(userInput);
-      
-      randomWordText.textContent = letters[userInput];
+      for (var g = 0; g < chosenWord.length; g++) {
+        if (chosenWord[g] === userInput) {
+          letters[g] = userInput;
+          remainLetters--;
+        }
+      }
+    randomWordText.textContent = letters.join(' ');
+
 
     } 
   }
 
   
   if (guessLeft === 0) {
-    alert ("lost");
+    losses--;
     guessLeft = 10;
   }
 
@@ -70,7 +73,6 @@ var letters = [];
     alert('You Won!');
   }
 
-  }
   
 
 
