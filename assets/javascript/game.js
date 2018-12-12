@@ -1,4 +1,4 @@
-/* get elements */
+/* get elements for text*/
 var randomWordText = document.getElementById('randomWord');
 var winsText = document.getElementById('wins');
 var lossesText = document.getElementById('losses');
@@ -10,7 +10,7 @@ var wins = 0;
 var losses = 0;
 var guessLeft = 10;
 
-/* var to store userInput, correct and wrong guesses */
+/* var to store chosen word and wrong guesses */
 var wrongGuess = [];
 var chosenWord = [];
 
@@ -49,6 +49,8 @@ var letters = [];
 
         guessesLeftText.textContent = guessLeft;
         lettersGuessedText.textContent = "Guessed Letters: " + wrongGuess;
+        guessesLeftText.textContent = guessLeft;
+
 
     } else {
       for (var g = 0; g < chosenWord.length; g++) {
@@ -56,23 +58,23 @@ var letters = [];
           letters[g] = userInput;
           remainLetters--;
         }
+
+        if (remainLetters === 0) {
+          alert ("You Got It!");
+          wins++;
+          guessLeft = 10;
+          wrongGuess = [];
+
+        } if (guessLeft === 0) {
+            losses--;
+            guessLeft = 10;
+          }
+        }
       }
     randomWordText.textContent = letters.join(' ');
-
-
-    } 
+    winsText.textContent = "Wins: " + wins;
+    lossesText.textContent = "Losses: " + losses;
   }
-
-  
-  if (guessLeft === 0) {
-    losses--;
-    guessLeft = 10;
-  }
-
-  if (letters.indexOf('_ ') === -1) {
-    alert('You Won!');
-  }
-
   
 
 

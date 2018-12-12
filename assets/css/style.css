@@ -35,8 +35,27 @@ h2 {
     height: 250px;
 }
 
-#randomWord {
+#randomWord,
+#guesses-left,
+#letters-guessed {
     margin-top: 100px;
     text-align: center;
     font-size: 50px;
 }
+
+ #letters-guessed {
+    font-size: 30px;
+    margin: 100px;
+}
+
+#wins,
+#losses {
+    font-size: 20px;
+    text-align: center;
+}
+
+#wins {
+    margin: 100px 0 20px;
+}
+
+
